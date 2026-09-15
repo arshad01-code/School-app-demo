@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metamorph Learning Platform Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🎓 Metamorph Learning Platform</h1>
+  <p>AI-powered Interactive Learning Platform Demo</p>
+</header>
+
+<nav>
+  <button onclick="show('home')">Home</button>
+  <button onclick="show('student')">Student</button>
+  <button onclick="show('teacher')">Teacher</button>
+</nav>
+
+<section id="home" class="page active">
+  <h2>Welcome</h2>
+  <p>This demo shows AI tutor, interactive lessons, quizzes, analytics and teacher tools.</p>
+</section>
+
+<section id="student" class="page">
+  <h2>Student Dashboard</h2>
+  <div class="card">
+    <h3>Python Backend + AI Engineer</h3>
+    <div class="progress"><div style="width:72%"></div></div>
+    <p>Course Progress: <b>72%</b></p>
+  </div>
+
+  <div class="card">
+    <h3>🤖 AI Tutor</h3>
+    <input id="q" placeholder="Ask AI..." />
+    <button onclick="askAI()">Ask</button>
+    <p id="answer"></p>
+  </div>
+
+  <div class="card">
+    <h3>📝 Quiz</h3>
+    <p>What does Depends() do in FastAPI?</p>
+    <button onclick="quiz(true)">Provides reusable dependencies</button>
+    <button onclick="quiz(false)">Starts server</button>
+    <p id="quizResult"></p>
+  </div>
+</section>
+
+<section id="teacher" class="page">
+  <h2>Teacher Dashboard</h2>
+  <textarea id="syllabus">Grade 6 Science
+Water Cycle
+Evaporation
+Condensation
+Rainfall</textarea>
+  <button onclick="generate()">Generate Lesson</button>
+  <div id="lesson"></div>
+
+  <h3>Student Analytics</h3>
+  <div class="card">
+    Dependency Injection
+    <div class="progress"><div style="width:42%;background:#f59e0b"></div></div>
+    <p>AI Recommendation: Review lesson and assign practice quiz.</p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
