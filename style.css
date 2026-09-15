@@ -1,0 +1,10 @@
+body{font-family:Arial,sans-serif;background:#eef4ff;margin:0}
+header{background:#1d4ed8;color:#fff;padding:20px}
+nav{padding:12px;background:#fff;display:flex;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+button{background:#2563eb;color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+.page{display:none;padding:20px}
+.active{display:block}
+.card{background:#fff;padding:16px;border-radius:14px;margin-top:16px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.progress{background:#dbeafe;height:10px;border-radius:20px;overflow:hidden}
+.progress div{height:100%;background:#16a34a}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin:10px 0}
