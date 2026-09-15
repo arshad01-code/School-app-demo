@@ -1,70 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metamorph Learning Platform Demo</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metamorph | Learning, remixed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>🎓 Metamorph Learning Platform</h1>
-  <p>AI-powered Interactive Learning Platform Demo</p>
-</header>
-
-<nav>
-  <button onclick="show('home')">Home</button>
-  <button onclick="show('student')">Student</button>
-  <button onclick="show('teacher')">Teacher</button>
-</nav>
-
-<section id="home" class="page active">
-  <h2>Welcome</h2>
-  <p>This demo shows AI tutor, interactive lessons, quizzes, analytics and teacher tools.</p>
-</section>
-
-<section id="student" class="page">
-  <h2>Student Dashboard</h2>
-  <div class="card">
-    <h3>Python Backend + AI Engineer</h3>
-    <div class="progress"><div style="width:72%"></div></div>
-    <p>Course Progress: <b>72%</b></p>
-  </div>
-
-  <div class="card">
-    <h3>🤖 AI Tutor</h3>
-    <input id="q" placeholder="Ask AI..." />
-    <button onclick="askAI()">Ask</button>
-    <p id="answer"></p>
-  </div>
-
-  <div class="card">
-    <h3>📝 Quiz</h3>
-    <p>What does Depends() do in FastAPI?</p>
-    <button onclick="quiz(true)">Provides reusable dependencies</button>
-    <button onclick="quiz(false)">Starts server</button>
-    <p id="quizResult"></p>
-  </div>
-</section>
-
-<section id="teacher" class="page">
-  <h2>Teacher Dashboard</h2>
-  <textarea id="syllabus">Grade 6 Science
-Water Cycle
-Evaporation
-Condensation
-Rainfall</textarea>
-  <button onclick="generate()">Generate Lesson</button>
-  <div id="lesson"></div>
-
-  <h3>Student Analytics</h3>
-  <div class="card">
-    Dependency Injection
-    <div class="progress"><div style="width:42%;background:#f59e0b"></div></div>
-    <p>AI Recommendation: Review lesson and assign practice quiz.</p>
-  </div>
-</section>
-
-<script src="script.js"></script>
-</body>
-</html>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" data-page="home"><span class="brand-mark">m</span><span>metamorph</span></a>
+      <div class="workspace-label">Workspace</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-item" data-page="student"><span class="nav-icon">◈</span>My learning</button>
+        <button class="nav-item" data-page="lesson"><span class="nav-icon">◉</span>Interactive lesson</button>
+        <button class="nav-item" data-page="tutor"><span class="nav-icon">✦</span>AI tutor <span class="new-dot"></span></button>
+        <button class="nav-item" data-page="quiz"><span class="nav-icon">✓</span>Quiz lab</button>
+        <button class="nav-item" data-page="analytics"><span class="nav-icon">▥</span>Analytics</button>
+      </nav>
+      <div class="workspace-label teacher-label">For educators</div>
+      <button class="nav-item" data-page="teacher"><span class="nav-icon">△</span>Teacher studio</button>
+      <div class="sidebar-bottom">
+        <div class="upgrade-card"><span class="eyebrow">METAMORPH PRO</span><strong>Make every lesson feel personal.</strong><button class="text-link">Explore plan <span>→</span></button></div>
+        <div class="profile"><div class="avatar">AS</div><div><strong>Alex Smith</strong><small>Grade 8 · Student</small></div><span class="more">•••</span></div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" aria-label="Open menu">☰</button><div class="breadcrumb">Tuesday, October 24 <span>/</span> 9:41 AM</div><div class="top-actions"><button class="icon-button" aria-label="Notifications">♢<span class="notification-dot"></span></button><button class="help-button">? <span>Help center</span></button></div></header>
+      <section id="home" class="page active-page">
+        <div class="hero-row"><div><div class="eyebrow">TUESDAY, OCTOBER 24</div><h1>Good morning, Alex<span class="accent">.</span></h1><p class="lede">Your next breakthrough is closer than you think.</p></div><button class="primary-button" data-page="lesson">Continue learning <span>→</span></button></div>
+        <div class="focus-banner"><div class="focus-orbit"><span></span><b>72%</b></div><div class="focus-copy"><span class="eyebrow">YOUR DAILY FOCUS</span><h3>Complete the water cycle lesson</h3><p>12 min left <span class="muted-separator">·</span> Science <span class="status-pill">In progress</span></p></div><button class="arrow-button" data-page="lesson" aria-label="Open lesson">→</button></div>
+        <div class="section-heading"><div><span class="eyebrow">YOUR SPACE</span><h2>Keep exploring</h2></div><button class="quiet-button" data-page="student">View all <span>→</span></button></div>
+        <div class="overview-grid"><article class="stat-card coral-card"><div class="card-top"><span class="card-label">CURRENT STREAK</span><span class="mini-icon">✦</span></div><strong>07 <small>days</small></strong><p>Best streak: 12 days</p><div class="streak-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i class="today"></i></div></article><article class="stat-card cream-card"><div class="card-top"><span class="card-label">WEEKLY PROGRESS</span><span class="mini-icon">↗</span></div><strong>4.5 <small>/ 6 hrs</small></strong><p>1.5 hours to your goal</p><div class="progress-line"><span style="width:75%"></span></div></article><article class="stat-card dark-card"><div class="card-top"><span class="card-label">SKILL SCORE</span><span class="mini-icon">◎</span></div><strong>84<small>/100</small></strong><p>Top 18% of your class</p><div class="score-line"><span></span></div></article></div>
+        <div class="section-heading recent-heading"><div><span class="eyebrow">RECENTLY OPENED</span><h2>Pick up where you left off</h2></div></div>
+        <div class="course-grid"><button class="course-card" data-page="lesson"><div class="course-visual water-visual"><span>H₂O</span><i></i><b></b></div><div class="course-info"><span class="subject">SCIENCE · GRADE 8</span><h3>The journey of a water droplet</h3><div class="course-meta"><span>Lesson 3 of 6</span><span>↗ 12 min</span></div><div class="tiny-progress"><span style="width:48%"></span></div></div></button><button class="course-card" data-page="quiz"><div class="course-visual math-visual"><span>∑</span><i>+</i><b>÷</b></div><div class="course-info"><span class="subject">MATHEMATICS · GRADE 8</span><h3>Patterns in prime numbers</h3><div class="course-meta"><span>Lesson 1 of 4</span><span>↗ 18 min</span></div><div class="tiny-progress"><span style="width:18%"></span></div></div></button></div>
+      </section>
+      <section id="student" class="page"><div class="page-heading"><div><span class="eyebrow">STUDENT DASHBOARD</span><h1>Your learning path</h1><p class="lede">Small steps, visible progress, real momentum.</p></div><div class="date-chip">This week <span>⌄</span></div></div><div class="dashboard-layout"><div><div class="panel path-panel"><div class="panel-heading"><div><span class="eyebrow">IN PROGRESS</span><h2>Python Backend + AI Engineer</h2></div><span class="percent-badge">72%</span></div><div class="large-progress"><span style="width:72%"></span></div><div class="path-stats"><span><b>14</b> modules done</span><span><b>26</b> hours learned</span><span><b>4.8</b> avg. score</span></div><button class="primary-button small" data-page="lesson">Resume path <span>→</span></button></div><div class="panel"><div class="panel-heading"><div><span class="eyebrow">UP NEXT</span><h2>Suggested for you</h2></div><button class="quiet-button">See all <span>→</span></button></div><div class="suggestion-list"><button class="suggestion" data-page="tutor"><span class="suggestion-icon lilac">✦</span><span><b>Ask the AI tutor</b><small>Get unstuck on your current module</small></span><span>→</span></button><button class="suggestion" data-page="quiz"><span class="suggestion-icon mint">✓</span><span><b>Practice: dependency injection</b><small>5 questions · 8 min</small></span><span>→</span></button></div></div></div><aside class="panel quote-panel"><span class="quote-mark">“</span><blockquote>Curiosity is not a distraction. It is the engine.</blockquote><p>— Metamorph learning principle</p><div class="quote-orbit"></div></aside></div></section>
+      <section id="lesson" class="page"><div class="lesson-header"><button class="back-link" data-page="student">← My learning</button><div class="lesson-title"><span class="eyebrow">SCIENCE · GRADE 8 · LESSON 3</span><h1>The journey of a water droplet</h1><p>How water moves through our world, one transformation at a time.</p></div><div class="lesson-progress"><b>3</b><span>of 6</span></div></div><div class="lesson-layout"><div class="lesson-main"><div class="cycle-stage"><div class="stage-label">THE WATER CYCLE</div><div class="cycle-sun">sun</div><div class="cycle-cloud cloud-one">cloud</div><div class="cycle-cloud cloud-two">cloud</div><div class="cycle-mountain">▲</div><div class="cycle-ocean">water</div><div class="cycle-drop drop-one">•</div><div class="cycle-drop drop-two">•</div><div class="cycle-arrow arrow-up">↑</div><div class="cycle-arrow arrow-down">↓</div><div class="cycle-arrow arrow-side">→</div><div class="cycle-label evap">EVAPORATION</div><div class="cycle-label cond">CONDENSATION</div><div class="cycle-label precip">PRECIPITATION</div><button class="play-button" id="cyclePlay">▶ <span>Play cycle</span></button></div><div class="lesson-copy"><div><span class="step-count">01 / 03</span><h2>Water is always on the move</h2><p>The sun warms rivers, lakes, and oceans. Some of that liquid water turns into an invisible gas called water vapor and rises into the atmosphere.</p></div><button class="primary-button" id="nextLessonStep">Next concept <span>→</span></button></div></div><aside class="lesson-aside panel"><span class="eyebrow">LESSON MAP</span><div class="lesson-steps"><div class="lesson-step done"><span>✓</span><div><b>Meet the droplet</b><small>Completed</small></div></div><div class="lesson-step current"><span>02</span><div><b>Three transformations</b><small>In this lesson</small></div></div><div class="lesson-step"><span>03</span><div><b>Think like a scientist</b><small>Activity</small></div></div><div class="lesson-step"><span>04</span><div><b>Quick check</b><small>Quiz</small></div></div></div><div class="tip-box"><span>✦</span><div><b>AI learning tip</b><p>Try explaining evaporation in your own words before moving on.</p></div></div></aside></div></section>
+      <section id="tutor" class="page"><div class="page-heading"><div><span class="eyebrow">METAMORPH AI</span><h1>Think out loud.</h1><p class="lede">Your patient, always-on study partner.</p></div><span class="online-status"><i></i> Online now</span></div><div class="tutor-layout"><div class="chat-panel panel"><div class="chat-top"><div class="tutor-avatar">✦</div><div><b>Nova</b><small>Metamorph AI tutor · Guided mode</small></div><button class="icon-button">•••</button></div><div class="chat-messages" id="chatMessages"><div class="message ai-message"><span class="message-avatar">✦</span><div><p>Hey Alex. What are you working through today?</p><small>9:40 AM</small></div></div><div class="message user-message"><div><p>I keep mixing up evaporation and condensation.</p><small>9:41 AM</small></div></div><div class="message ai-message"><span class="message-avatar">✦</span><div><p>Think of them as opposite doors: evaporation is water leaving the liquid state, while condensation is vapor coming back in. Want to test that idea with a real-world example?</p><small>9:41 AM</small></div></div></div><div class="suggested-prompts"><button data-prompt="Can you give me a real-world example?">Give me an example</button><button data-prompt="Quiz me on this concept">Quiz me</button><button data-prompt="Explain it more simply">Simplify this</button></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Ask Nova anything..." autocomplete="off"><button class="send-button" aria-label="Send message">↑</button></form></div><aside class="panel tutor-side"><span class="eyebrow">CURRENT CONTEXT</span><h3>Water cycle · Lesson 3</h3><p>Nova is using your current lesson to give more relevant guidance.</p><div class="context-tags"><span>Science</span><span>Grade 8</span><span>In progress</span></div><button class="quiet-button" data-page="lesson">Open lesson <span>→</span></button></aside></div></section>
+      <section id="quiz" class="page"><div class="page-heading"><div><span class="eyebrow">QUIZ LAB · WATER CYCLE</span><h1>Quick check</h1><p class="lede">Let’s see what stuck. You can always try again.</p></div><span class="quiz-count">Question <b id="questionNumber">1</b> of 3</span></div><div class="quiz-layout"><div class="quiz-card panel"><div class="quiz-progress"><span></span></div><span class="eyebrow">CONCEPT CHECK</span><h2 id="quizQuestion">What happens during condensation?</h2><div class="answer-options" id="answerOptions"><button data-correct="false">Water turns into vapor and rises.</button><button data-correct="true">Water vapor cools and forms droplets.</button><button data-correct="false">Droplets fall from clouds as rain.</button></div><div class="quiz-feedback" id="quizFeedback"></div><button class="primary-button quiz-next" id="quizNext" disabled>Check answer <span>→</span></button></div><aside class="quiz-note"><span class="eyebrow">A NOTE FROM NOVA</span><p>“Getting it wrong is useful data. Notice what your brain chose, then try the concept again.”</p><div class="mini-score"><b>84%</b><span>your average score</span></div></aside></div></section>
+      <section id="analytics" class="page"><div class="page-heading"><div><span class="eyebrow">YOUR PERFORMANCE</span><h1>See your momentum.</h1><p class="lede">A clearer picture of how you learn best.</p></div><div class="date-chip">Last 30 days <span>⌄</span></div></div><div class="analytics-grid"><div class="panel chart-panel"><div class="panel-heading"><div><span class="eyebrow">LEARNING HOURS</span><h2>18.4 <small>hours</small></h2></div><span class="trend-up">↗ 12.8%</span></div><div class="chart"><div class="chart-y"><span>6h</span><span>4h</span><span>2h</span><span>0h</span></div><div class="chart-area"><div class="grid-lines"></div><svg viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Learning hours trend"><path class="chart-fill" d="M0,150 C45,145 50,120 95,130 S145,90 190,110 S240,60 285,90 S335,120 380,72 S430,82 475,45 S530,80 600,25 L600,190 L0,190Z"></path><path class="chart-line" d="M0,150 C45,145 50,120 95,130 S145,90 190,110 S240,60 285,90 S335,120 380,72 S430,82 475,45 S530,80 600,25"></path></svg><div class="chart-x"><span>Sep 25</span><span>Oct 02</span><span>Oct 09</span><span>Oct 16</span><span>Today</span></div></div></div></div><div class="panel skills-panel"><div class="panel-heading"><div><span class="eyebrow">SKILL MAP</span><h2>What you know</h2></div><span class="mini-icon">◎</span></div><div class="skill"><div><span>Python fundamentals</span><b>92%</b></div><div class="skill-bar"><span style="width:92%"></span></div></div><div class="skill"><div><span>API architecture</span><b>78%</b></div><div class="skill-bar"><span style="width:78%"></span></div></div><div class="skill"><div><span>Data structures</span><b>64%</b></div><div class="skill-bar"><span style="width:64%"></span></div></div><div class="skill"><div><span>Dependency injection</span><b class="amber">42%</b></div><div class="skill-bar"><span class="amber-bar" style="width:42%"></span></div></div><button class="quiet-button" data-page="tutor">Practice a skill <span>→</span></button></div></div><div class="insight-row"><div class="insight-card"><span>✦</span><div><span class="eyebrow">AI INSIGHT</span><h3>You learn best in short bursts.</h3><p>Your strongest sessions happen between 15 and 25 minutes. Keep that rhythm.</p></div></div><div class="rank-card"><span class="eyebrow">CLASS RANK</span><strong>Top 18<span>th</span></strong><p>↑ 6 places this month</p></div></div></section>
+      <section id="teacher" class="page"><div class="page-heading"><div><span class="eyebrow">TEACHER STUDIO</span><h1>Build the spark.</h1><p class="lede">Let AI handle the first draft. You bring the point of view.</p></div><button class="primary-button" id="generateSyllabus">Generate syllabus <span>✦</span></button></div><div class="teacher-grid"><div class="panel generator-panel"><div class="panel-heading"><div><span class="eyebrow">AI SYLLABUS GENERATOR</span><h2>Start with a direction</h2></div><span class="ai-badge">AI</span></div><label>What do you want students to explore?</label><textarea id="syllabusInput">Grade 6 Science
+The water cycle and climate</textarea><div class="generator-options"><label>Class level <select><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option></select></label><label>Length <select><option>4 weeks</option><option>6 weeks</option></select></label></div><div class="generate-status" id="generateStatus"></div></div><div class="panel generated-panel" id="generatedPanel"><div class="empty-generator"><div class="sparkle">✦</div><h3>Your syllabus will appear here</h3><p>Add a topic and let Nova map objectives, activities, and assessment checkpoints.</p></div></div></div><div class="teacher-bottom"><div class="panel class-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR CLASS</span><h2>8A · Earth science</h2></div><button class="quiet-button">Manage <span>→</span></button></div><div class="class-stats"><div><b>28</b><span>students</span></div><div><b>76%</b><span>on track</span></div><div><b>8.6</b><span>avg score</span></div></div><div class="student-row"><div class="avatar small-avatar">JM</div><span><b>Jordan M.</b><small>Needs a nudge in condensation</small></span><strong>68%</strong></div><div class="student-row"><div class="avatar small-avatar peach">LR</div><span><b>Leila R.</b><small>On a 9 day streak</small></span><strong class="green-text">94%</strong></div></div><div class="panel teacher-insight"><span class="eyebrow">AI CLASS INSIGHT</span><h2>Most students are ready for a challenge.</h2><p>22 of 28 students have mastered the core concepts. Consider unlocking the extension activity.</p><button class="quiet-button">View recommendation <span>→</span></button></div></div></section>
++    </main>
++  </div>
++  <script src="script.js"></script>
++</body>
++</html>
